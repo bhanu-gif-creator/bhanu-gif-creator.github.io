@@ -1,429 +1,342 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#102832" />
-  <meta name="description" content="Bhanu Annabathula — MSc International Business student at KEDGE Business School with a background in Business Analytics. Explore projects, skills, and interests in international trade, market research, and business development." />
-  <title>Bhanu Annabathula | International Business Portfolio</title>
-  <style>
-    :root {
-      --ink: #163038;
-      --ink-deep: #102832;
-      --muted: #526970;
-      --accent: #caedb6;
-      --accent-deep: #21745e;
-      --line: #dce6e1;
-      --paper: #f7f9f5;
-      --white: #ffffff;
-      --soft: #ebf3ed;
-      --radius: 22px;
-      --shadow: 0 22px 58px rgba(22, 48, 56, .07);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; color: var(--ink); background: var(--paper); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    a:focus-visible, button:focus-visible { outline: 3px solid #3c8e7c; outline-offset: 3px; }
-    .wrap { width: min(1140px, calc(100% - 48px)); margin-inline: auto; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--accent-deep); font-size: .77rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 24px; height: 2px; background: currentColor; }
-    .section { padding: 104px 0; }
-    .section-title { margin: 15px 0 14px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.13; letter-spacing: -.045em; font-weight: 800; }
-    .section-intro { max-width: 635px; margin: 0 0 40px; color: var(--muted); font-size: 1.06rem; }
-    .skip-link { position: absolute; left: -9999px; top: 0; padding: 8px 14px; background: white; z-index: 999; }
-    .skip-link:focus { left: 12px; }
-    header { position: sticky; top: 0; z-index: 100; background: rgba(247,249,245,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(22,48,56,.08); }
-    .nav { display: flex; justify-content: space-between; align-items: center; min-height: 76px; gap: 20px; }
-    .brand { display: inline-flex; gap: 11px; align-items: center; font-weight: 850; font-size: 1.02rem; letter-spacing: -.03em; }
-    .mark { display: grid; place-items: center; height: 38px; width: 38px; background: var(--ink-deep); color: var(--accent); border-radius: 11px; letter-spacing: -.06em; font-size: .94rem; }
-    .nav-links { display: flex; align-items: center; gap: 30px; }
-    .nav-links > a { font-size: .88rem; font-weight: 650; color: #435b60; transition: color .2s; }
-    .nav-links > a:hover { color: var(--accent-deep); }
-    .nav-links .nav-cta { color: var(--white); background: var(--ink-deep); padding: 11px 18px; border-radius: 10px; }
-    .nav-links .nav-cta:hover { color: var(--accent); }
-    .menu-toggle { display: none; background: transparent; border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 7px 12px; cursor: pointer; }
-    .hero { padding: 97px 0 100px; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: 1.14fr .86fr; gap: 60px; align-items: center; }
-    .status { display: inline-flex; align-items: center; gap: 9px; padding: 8px 13px; border-radius: 999px; background: var(--soft); color: #276f54; font-size: .8rem; font-weight: 750; margin-bottom: 30px; }
-    .status-dot { height: 8px; width: 8px; border-radius: 50%; background: #36a56a; box-shadow: 0 0 0 4px #d6ead8; }
-    h1 { font-size: clamp(3.2rem, 6.1vw, 5.7rem); font-weight: 850; line-height: 1.06; letter-spacing: -.07em; margin: 0 0 22px; }
-    h1 span { display: block; color: var(--accent-deep); }
-    .hero-lead { max-width: 560px; font-size: clamp(1.08rem, 1.6vw, 1.22rem); color: var(--muted); margin: 0; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
-    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 12px; padding: 14px 21px; border: 1px solid transparent; border-radius: 12px; font-weight: 800; font-size: .93rem; transition: transform .2s, background .2s; }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--ink-deep); color: #fff; }
-    .btn-secondary { border-color: var(--line); background: #fff; color: var(--ink); }
-    .location { margin-top: 34px; color: var(--muted); font-size: .88rem; display: flex; gap: 8px; align-items: center; }
-    .location svg { width: 17px; height: 17px; }
-    .hero-visual { position: relative; padding: 28px 0 16px; }
-    .hero-visual::before { content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%; background: var(--accent); opacity: .38; right: -110px; top: -24px; filter: blur(22px); }
-    .profile-panel { position: relative; min-height: 445px; background: var(--ink-deep); color: #fff; border-radius: 27px; padding: 32px; box-shadow: 0 30px 65px rgba(16,40,50,.16); overflow: hidden; }
-    .panel-top { position: relative; display: flex; align-items: center; justify-content: space-between; color: #d1ded8; font-weight: 650; font-size: .86rem; }
-    .panel-top .dots { display: flex; gap: 6px; }
-    .dots i { display: inline-block; width: 7px; height: 7px; background: #688d86; border-radius: 50%; }
-    .panel-ring { position: absolute; right: -90px; top: 74px; width: 340px; height: 340px; border: 1px solid rgba(202,237,182,.32); border-radius: 50%; }
-    .panel-ring::before, .panel-ring::after { content: ""; position: absolute; inset: 30px; border: 1px solid rgba(202,237,182,.29); border-radius: 50%; }
-    .panel-ring::after { inset: 70px; background: rgba(202,237,182,.12); }
-    .panel-main { position: relative; margin-top: 85px; }
-    .monogram { color: var(--accent); font-size: clamp(6.5rem, 12vw, 10rem); letter-spacing: -.13em; line-height: 1; font-weight: 900; }
-    .panel-main h2 { font-size: 1.35rem; margin: 14px 0 3px; letter-spacing: -.02em; }
-    .panel-main p { color: #bfcec8; font-size: .91rem; margin: 0; }
-    .floating-pill { position: absolute; right: -29px; bottom: 37px; max-width: 240px; background: #fff; padding: 16px 18px; border-radius: 14px; box-shadow: var(--shadow); display: flex; gap: 12px; align-items: center; }
-    .pill-icon { width: 38px; height: 38px; display: grid; place-items: center; flex: 0 0 38px; border-radius: 11px; background: #dbf2d0; color: #206d53; font-weight: 900; }
-    .floating-pill strong { font-size: .81rem; display: block; line-height: 1.3; }
-    .floating-pill small { color: var(--muted); font-size: .73rem; }
-    .metric-band { background: #eaf1e9; border-top: 1px solid #e2eae0; border-bottom: 1px solid #e2eae0; }
-    .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding-block: 32px; }
-    .metric { border-right: 1px solid #ccd9d2; padding-left: 16px; }
-    .metric:first-child { padding-left: 0; }
-    .metric:last-child { border-right: 0; }
-    .metric strong { display: block; font-size: 1.06rem; letter-spacing: -.03em; }
-    .metric span { color: var(--muted); font-size: .81rem; }
-    .about-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 90px; align-items: start; }
-    .about-copy { font-size: 1.12rem; line-height: 1.95; color: #3b535a; }
-    .about-copy p { margin: 0 0 22px; }
-    .focus-card { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 26px; }
-    .focus { padding: 17px; border-radius: 14px; background: #fff; border: 1px solid var(--line); font-size: .84rem; font-weight: 750; line-height: 1.4; }
-    .focus-number { display: block; font-weight: 900; font-size: .76rem; color: var(--accent-deep); margin-bottom: 16px; }
-    .projects { background: #fff; }
-    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .project-card { display: flex; flex-direction: column; border-radius: var(--radius); background: var(--paper); border: 1px solid #e6ece7; padding: 29px; min-height: 344px; transition: transform .22s, box-shadow .22s; }
-    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-    .project-number { font-size: .79rem; color: var(--accent-deep); font-weight: 850; letter-spacing: .1em; }
-    .project-card h3 { font-size: 1.4rem; line-height: 1.3; letter-spacing: -.032em; margin: 32px 0 13px; }
-    .project-card p { color: var(--muted); font-size: .91rem; margin: 0; }
-    .project-tag { margin-top: auto; padding-top: 30px; display: flex; gap: 8px; flex-wrap: wrap; }
-    .project-tag span { color: #3a725d; background: #e4f0df; border-radius: 999px; font-size: .71rem; font-weight: 750; padding: 6px 10px; }
-    .education-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; }
-    .timeline { border-left: 1px solid #cbd9d1; padding-left: 31px; margin-left: 6px; }
-    .timeline-entry { position: relative; padding: 0 0 39px; }
-    .timeline-entry:last-child { padding-bottom: 0; }
-    .timeline-entry::before { content: ""; position: absolute; left: -39px; top: 5px; width: 15px; height: 15px; border-radius: 50%; background: var(--accent-deep); border: 4px solid var(--paper); box-shadow: 0 0 0 1px #a3c9ae; }
-    .date { color: var(--accent-deep); font-size: .8rem; font-weight: 850; letter-spacing: .07em; }
-    .timeline h3 { margin: 9px 0 3px; font-size: 1.23rem; letter-spacing: -.025em; }
-    .timeline p { margin: 0; color: var(--muted); font-size: .92rem; }
-    .skills { background: #eaf1e9; }
-    .skills-wrap { display: grid; grid-template-columns: .75fr 1.25fr; gap: 75px; align-items: start; }
-    .skill-group { background: #fff; border-radius: var(--radius); padding: 28px 30px; margin-bottom: 15px; border: 1px solid #dce8dc; }
-    .skill-group h3 { font-size: 1rem; margin: 0 0 20px; letter-spacing: -.015em; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 9px; }
-    .skill-tags span { border: 1px solid #dce6e1; border-radius: 9px; padding: 8px 12px; font-size: .82rem; color: #3e5459; background: #fafcf9; }
-    .contact { padding: 99px 0; background: var(--ink-deep); color: #fff; }
-    .contact-box { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
-    .contact .eyebrow { color: var(--accent); }
-    .contact h2 { margin: 17px 0; font-size: clamp(2.3rem, 4.9vw, 4.4rem); line-height: 1.13; letter-spacing: -.055em; }
-    .contact p { max-width: 600px; color: #bdcecb; margin: 0; }
-    .contact .btn { background: var(--accent); color: var(--ink-deep); white-space: nowrap; }
-    footer { background: #0c2028; color: #a2b8b4; padding: 24px 0; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 16px; font-size: .78rem; }
-    .footer-inner a { color: #def2d1; }
-    @media (max-width: 900px) {
-      .hero-grid, .about-grid, .education-grid, .skills-wrap { grid-template-columns: 1fr; gap: 36px; }
-      .hero-grid { gap: 70px; }
-      .hero-visual { max-width: 530px; width: calc(100% - 23px); margin-inline: auto; }
-      .project-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-box { align-items: start; flex-direction: column; }
-      .metric-grid { gap: 14px; }
-    }
-    @media (max-width: 640px) {
-      .wrap { width: min(100% - 34px, 1140px); }
-      .nav { min-height: 68px; }
-      .menu-toggle { display: block; }
-      .nav-links { display: none; position: absolute; top: 68px; left: 0; width: 100%; padding: 18px 17px 23px; background: var(--paper); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 16px; }
-      .nav-links.open { display: flex; }
-      .nav-links .nav-cta { text-align: center; }
-      .hero { padding: 69px 0 80px; }
-      .hero-grid { gap: 52px; }
-      h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
-      .hero-visual { width: calc(100% - 16px); }
-      .profile-panel { min-height: 380px; padding: 24px; }
-      .panel-main { margin-top: 63px; }
-      .monogram { font-size: 8rem; }
-      .floating-pill { right: -16px; bottom: -18px; }
-      .metric-grid { grid-template-columns: 1fr; padding: 20px 0; gap: 0; }
-      .metric, .metric:first-child { border-right: 0; border-bottom: 1px solid #cbd9d1; padding: 14px 0; }
-      .metric:last-child { border-bottom: 0; }
-      .section { padding: 75px 0; }
-      .focus-card { grid-template-columns: 1fr; }
-      .focus-number { margin-bottom: 5px; }
-      .project-grid { grid-template-columns: 1fr; }
-      .project-card { min-height: 280px; }
-      .contact { padding: 75px 0; }
-      .footer-inner { flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; } }
-  .contact-actions{display:flex;gap:12px;flex-wrap:wrap}.contact-actions .btn:nth-child(2){background:#fff}.contact-actions .btn:nth-child(3){background:transparent;border-color:#a8b9b0;color:white}@media(max-width:640px){.contact-actions{flex-direction:column}}
-/* Image occupies and aligns with its own photo box, no absolute-offset drift. */
-.profile-panel { display:flex; flex-direction:column; min-height:515px; isolation:isolate; }
-.panel-top { z-index:2; flex-shrink:0; }
-.panel-ring { z-index:-1; pointer-events:none; }
-.portrait-frame { position:relative; z-index:1; display:block; width:min(100%,245px); aspect-ratio:3/4; margin:18px auto 17px; border-radius:22px; overflow:hidden; flex-shrink:0; background:#314c47; border:2px solid rgba(202,237,182,.72); box-shadow:0 14px 36px #0005; }
-.portrait-frame img { display:block; width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:inherit; transition:transform .8s cubic-bezier(.2,.7,.2,1); }
-.profile-panel:hover .portrait-frame img { transform:scale(1.035); }
-.panel-main { z-index:2; margin-top:auto; text-align:center; }
-.panel-main .monogram { display:none; }
-.panel-main h2 { margin-top:0; font-size:1.35rem; }
-.panel-main p { line-height:1.45; }
-.floating-pill { z-index:3; }
-
-/* Motion is subtle and disabled for visitors who prefer less animation. */
-.hero-grid > :first-child > * { animation:enter-up .75s both cubic-bezier(.2,.7,.15,1); }
-.hero-grid > :first-child > :nth-child(2) { animation-delay:.1s; }
-.hero-grid > :first-child > :nth-child(3) { animation-delay:.18s; }
-.hero-grid > :first-child > :nth-child(4) { animation-delay:.27s; }
-.hero-grid > :first-child > :nth-child(5) { animation-delay:.35s; }
-.hero-visual { animation:enter-up .9s .13s both cubic-bezier(.2,.7,.15,1); }
-.status-dot { animation:status-glow 2.8s ease-in-out infinite; }
-.project-card, .focus, .skill-group { transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.project-card:hover { border-color:#b8d8bf; }
-.focus:hover, .skill-group:hover { transform:translateY(-3px); box-shadow:var(--shadow); }
-.btn { transition:transform .25s ease, box-shadow .25s ease; }
-.btn:hover { box-shadow:0 12px 27px rgba(16,40,50,.13); }
-@keyframes enter-up { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
-@keyframes status-glow { 0%,100% { box-shadow:0 0 0 4px #d6ead8; } 50% { box-shadow:0 0 0 8px #d6ead877; } }
-.motion-ready .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1); }
-.motion-ready .reveal.is-visible { opacity:1; transform:none; }
-@media(max-width:640px) {
- .profile-panel { min-height:495px; }
- .portrait-frame { width:min(100%,235px); margin:16px auto 15px; }
- .panel-main { margin-top:auto; }
- .floating-pill { right:-9px; bottom:-8px; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f9f5">
+<meta name="description" content="Bhanu Annabathula — MSc International Business student at KEDGE Business School, Bordeaux. Explore business development experience, academic projects and 2027 internship interests.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bhanu Annabathula | International Business">
+<meta property="og:description" content="Business development, international strategy and market research. Portfolio and internship availability.">
+<meta property="og:url" content="https://bhanu-gif-creator.github.io/">
+<title>Bhanu Annabathula | International Business Portfolio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%2311232b'/%3E%3Ctext x='50' y='63' text-anchor='middle' font-family='Arial' font-size='34' font-weight='bold' fill='%23daf0ad'%3EBA%3C/text%3E%3C/svg%3E">
+<script>
+(function(){
+  try {
+    var saved=localStorage.getItem('bhanu-theme');
+    var system=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    document.documentElement.dataset.theme=(saved==='light'||saved==='dark')?saved:system;
+  }catch(e){document.documentElement.dataset.theme='light';}
+})();
+</script>
+<style>
+:root{
+color-scheme:light;--bg:#f7f9f5;--surface:#fff;--soft:#edf4ec;--ink:#173039;--muted:#536970;--line:#d8e6dd;
+--accent:#2c725a;--accent-soft:#dff0d9;--accent-text:#1d5944;--mint:#d7efaa;
+--button:#132c34;--button-text:#fff;--shadow:0 22px 60px rgba(17,48,49,.09);
+--nav:rgba(247,249,245,.96);--hero:linear-gradient(140deg,#e7f2e2,#f7f9f5 62%,#edf4eb);
 }
-@media(max-width:370px) { .portrait-frame { width:min(100%,208px); } .profile-panel { min-height:463px; } }
-@media(prefers-reduced-motion:reduce) {
- .hero-grid > :first-child > *, .hero-visual, .status-dot { animation:none!important; }
- .motion-ready .reveal { opacity:1!important; transform:none!important; transition:none!important; }
- .portrait-frame img { transition:none!important; }
- .profile-panel:hover .portrait-frame img { transform:none!important; }
+html[data-theme="dark"]{
+color-scheme:dark;--bg:#101b20;--surface:#1b2b30;--soft:#17272b;--ink:#edf5ef;--muted:#b8cbc7;--line:#344b4b;
+--accent:#bce3b8;--accent-soft:#294438;--accent-text:#def4d4;--mint:#d7efa8;
+--button:#dbf1b2;--button-text:#172b30;--shadow:0 22px 60px rgba(0,0,0,.25);
+--nav:rgba(16,27,32,.96);--hero:linear-gradient(145deg,#182d2a,#101b20 64%,#14272d);
 }
-
-
-/* Refined, responsive portfolio animations */
-:root{--premium-ease:cubic-bezier(.22,1,.36,1)}
-#reading-progress{position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#35815e,#c5e595,#388b72);transform:scaleX(0);transform-origin:left center;pointer-events:none;z-index:5}
-.nav-links a:not(.nav-cta){position:relative}
-.nav-links a:not(.nav-cta)::after{content:"";position:absolute;bottom:-7px;left:0;right:100%;height:2px;background:#45936a;transition:right .3s var(--premium-ease)}
-.nav-links a:not(.nav-cta):hover::after,.nav-links a[aria-current="location"]:not(.nav-cta)::after{right:0}
-.nav-links a[aria-current="location"]:not(.nav-cta){color:var(--accent-deep)}
-.hero{isolation:isolate}.hero-grid{position:relative;z-index:1}
-.hero::after{content:"";position:absolute;left:-160px;bottom:-190px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,#b7dfb344,transparent 69%);pointer-events:none}
-.scroll-hint{margin-top:21px;display:inline-flex;align-items:center;gap:10px;font-size:.83rem;font-weight:760;color:#56716c;transition:color .2s}
-.scroll-hint:hover{color:var(--accent-deep)}
-.scroll-hint span{display:grid;place-items:center;width:30px;height:30px;border:1px solid #c9dcd2;background:#fff;border-radius:50%;color:#397b5d;animation:gentle-bob 2.9s ease-in-out infinite}
-.profile-panel{--tilt-x:0deg;--tilt-y:0deg;transform:perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transition:transform .29s ease,box-shadow .4s ease}
-.profile-panel.is-tilting{transition:transform .085s linear,box-shadow .4s ease}
-.profile-panel:hover{box-shadow:0 37px 76px #10283238}
-.profile-panel::after{content:"";position:absolute;width:270px;height:270px;right:-88px;top:-100px;background:radial-gradient(circle,#c5eeaf30,transparent 69%);border-radius:50%;pointer-events:none}
-.floating-pill{animation:float-gentle 5.6s ease-in-out infinite}
-.hero-visual::before{animation:ambient-breathe 10s ease-in-out infinite}
-.project-card{position:relative;overflow:hidden}
-.project-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#367c59,#c8e89d);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--premium-ease)}
-.project-card::after{content:"↗";position:absolute;top:23px;right:25px;color:#438560;font-size:1.25rem;opacity:.45;transform:translate(-5px,5px);transition:transform .35s var(--premium-ease),opacity .35s}
-.project-card:hover::before{transform:scaleX(1)}
-.project-card:hover::after{transform:translate(0,0);opacity:1}
-.project-tag span,.skill-tags span{transition:background .25s,transform .25s,border-color .25s}
-.project-card:hover .project-tag span{background:#d5ead3}
-.skill-tags span:hover{background:#eaf5e2;border-color:#b6d8b8;transform:translateY(-2px)}
-.motion-ready .reveal{transition-delay:var(--stagger,0ms);transition-duration:.75s;transition-timing-function:var(--premium-ease)}
-.timeline{position:relative}
-.timeline::after{content:"";position:absolute;top:0;bottom:0;left:-32px;width:2px;background:linear-gradient(#4f936b,#c9e4ad);transform:scaleY(0);transform-origin:top;transition:transform 1.15s var(--premium-ease)}
-.timeline.line-visible::after{transform:scaleY(1)}
-.contact .btn:hover{box-shadow:0 11px 25px #0003}
-@keyframes gentle-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
-@keyframes float-gentle{0%,100%{translate:0 0}50%{translate:0 -8px}}
-@keyframes ambient-breathe{0%,100%{opacity:.7;transform:scale(.97)}50%{opacity:1;transform:scale(1.08)}}
-@media(max-width:640px){.profile-panel{transform:none!important}.floating-pill{animation-duration:6.5s}.nav-links a:not(.nav-cta)::after{display:none}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.motion-ready .reveal{opacity:1!important;transform:none!important}.profile-panel{transform:none!important}.floating-pill{translate:none!important}.timeline::after{transform:scaleY(1)!important}}
-
-/* Mobile layout: place the floating information card below the portrait, not on top of the heading. */
-@media (max-width: 900px) {
-  .hero-visual .floating-pill {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    max-width: none;
-    margin: 18px auto 0;
-    animation: none;
-    translate: none;
-  }
-  .hero-visual .profile-panel {
-    margin-bottom: 0;
-  }
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+a{color:inherit;text-decoration:none}button,summary{font:inherit}a,button,summary{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.wrap{width:min(1170px,calc(100% - 54px));margin-inline:auto}
+.skip-link{position:fixed;z-index:200;left:12px;top:-100px;padding:10px 14px;border-radius:8px;background:var(--mint);color:#132b2b}.skip-link:focus{top:12px}
+#reading-progress{position:fixed;z-index:160;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#2b8763,#d5ea9a);transform:scaleX(0);transform-origin:left;pointer-events:none}
+header{position:sticky;top:0;z-index:100;background:var(--nav);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:77px;gap:24px}
+.brand{display:inline-flex;align-items:center;gap:12px;font-weight:850;font-size:1.02rem;letter-spacing:-.035em;white-space:nowrap}
+.mark{display:grid;place-items:center;height:40px;width:40px;flex-shrink:0;border-radius:12px;background:var(--button);color:var(--button-text);font-size:.92rem;letter-spacing:-.09em}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-links{display:flex;align-items:center;gap:21px}
+.nav-links a{font-size:.85rem;font-weight:740;color:var(--muted);position:relative;transition:color .2s}
+.nav-links a:hover,.nav-links a[aria-current="location"]{color:var(--accent)}
+.nav-links a::after{content:"";position:absolute;bottom:-10px;left:0;width:0;height:2px;background:var(--accent);transition:width .2s}
+.nav-links a:hover::after,.nav-links a[aria-current="location"]::after{width:100%}
+.icon-btn{height:41px;width:41px;display:grid;place-items:center;flex-shrink:0;background:var(--surface);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:1.15rem;cursor:pointer;transition:transform .2s,border-color .2s}
+.icon-btn:hover{transform:translateY(-2px);border-color:var(--accent)}.menu-btn{display:none}
+.hero{position:relative;overflow:hidden;background:var(--hero);padding:82px 0 95px}
+.hero::before,.hero::after{content:"";position:absolute;border:1px solid var(--line);border-radius:50%;pointer-events:none;opacity:.6}
+.hero::before{height:620px;width:620px;right:-290px;top:-330px}.hero::after{height:440px;width:440px;left:-250px;bottom:-285px}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);align-items:center;gap:68px;position:relative;z-index:1}
+.hero-copy{min-width:0}.chip{display:inline-flex;gap:10px;align-items:center;padding:8px 14px;border-radius:99px;background:var(--accent-soft);color:var(--accent-text);font-size:.78rem;font-weight:820}
+.chip::before{content:"";width:8px;height:8px;flex-shrink:0;border-radius:50%;background:#37aa71;box-shadow:0 0 0 4px #43a16d25;animation:chip-pulse 2.8s ease-in-out infinite}
+.hero h1{font-size:clamp(3rem,6.1vw,5.7rem);line-height:1.065;letter-spacing:-.067em;font-weight:850;margin:24px 0 22px}
+.hero h1 span{display:block}.hero h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:clamp(1.03rem,1.65vw,1.19rem);color:var(--muted);max-width:585px;margin:0}
+.btns{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:29px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 19px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;font-weight:830;font-size:.9rem;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent)}
+.btn-primary{background:var(--button);color:var(--button-text);border-color:transparent}
+.location{margin-top:24px;color:var(--muted);font-size:.85rem}
+.scroll-hint{display:inline-flex;gap:10px;align-items:center;margin-top:23px;font-size:.79rem;font-weight:790;color:var(--accent)}
+.scroll-hint span{display:grid;place-items:center;width:29px;height:29px;border:1px solid var(--line);border-radius:50%;background:var(--surface);animation:bob 2.8s ease-in-out infinite}
+.photo-card{position:relative;width:100%;max-width:456px;margin-left:auto;padding:13px;background:var(--surface);border:1px solid var(--line);border-radius:25px;box-shadow:var(--shadow);transition:box-shadow .25s,transform .3s}
+.photo-card:hover{box-shadow:0 29px 70px #1028322c}
+.photo-window{border-radius:16px;overflow:hidden;background:#1e3f42}
+.photo-window img{display:block;width:100%;aspect-ratio:1 / 1.07;object-fit:cover;object-position:center 33%;transition:transform .6s}
+.photo-card:hover img{transform:scale(1.04)}
+.photo-caption{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 6px 5px;min-width:0}
+.photo-caption strong{display:block;font-size:1.03rem;line-height:1.3;letter-spacing:-.015em}.photo-caption small{display:block;font-size:.77rem;color:var(--muted);margin-top:3px}
+.photo-arrow{display:grid;place-items:center;height:39px;width:39px;flex-shrink:0;border-radius:50%;background:var(--accent-soft);color:var(--accent-text);font-size:1.3rem}
+.photo-sticker{position:absolute;z-index:2;right:-12px;top:27px;background:var(--mint);color:#14362e;border-radius:10px;padding:9px 12px;font-size:.76rem;font-weight:850;transform:rotate(5deg);box-shadow:0 8px 20px #0002}
+.proof{background:var(--surface);border-block:1px solid var(--line)}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:24px 0}
+.proof-grid>div{padding:7px 26px;border-right:1px solid var(--line)}.proof-grid>div:first-child{padding-left:0}.proof-grid>div:last-child{border-right:0}
+.proof strong{display:block;font-size:1.03rem}.proof span{display:block;color:var(--muted);font-size:.82rem}
+.section{padding:95px 0}.alt{background:var(--surface)}.soft{background:var(--soft)}
+.eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.15em;font-weight:880;color:var(--accent)}
+h2{font-size:clamp(2.1rem,4.2vw,3.28rem);line-height:1.14;letter-spacing:-.051em;margin:15px 0 18px}
+.intro{max-width:650px;color:var(--muted);font-size:1.03rem;margin:0 0 35px}
+.split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:77px;align-items:start}
+.prose p{font-size:1.055rem;color:var(--muted);line-height:1.92;margin:0 0 19px}
+.foci{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:23px}
+.focus{padding:17px;border:1px solid var(--line);border-radius:14px;background:var(--surface);font-size:.81rem;font-weight:780;line-height:1.4;transition:transform .22s}
+.focus:hover{transform:translateY(-3px)}.focus small{display:block;font-weight:900;color:var(--accent);margin-bottom:12px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:30px}
+.section-head p{color:var(--muted);font-size:.99rem;max-width:420px;margin:0 0 4px}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.project{min-width:0;position:relative;padding:27px;border:1px solid var(--line);border-radius:21px;background:var(--soft);overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.project:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--accent)}
+.project::before{content:"";height:3px;width:100%;position:absolute;top:0;left:0;background:linear-gradient(90deg,#449670,#cceda0);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.project:hover::before{transform:scaleX(1)}
+.project-kicker{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:850;color:var(--accent)}
+.project h3{margin:23px 0 11px;font-size:1.4rem;letter-spacing:-.03em;line-height:1.3}
+.project p{color:var(--muted);font-size:.92rem;margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:21px 0 17px}.tags span{background:var(--accent-soft);color:var(--accent-text);padding:6px 10px;border-radius:99px;font-size:.71rem;font-weight:790}
+details{min-width:0}summary{list-style:none;cursor:pointer;user-select:none}summary::-webkit-details-marker{display:none}
+.project details{border-top:1px solid var(--line);padding-top:14px}
+.project summary{display:flex;align-items:center;justify-content:space-between;font-size:.88rem;color:var(--accent);font-weight:840}
+.project summary::after{content:"+";font-size:1.25rem;font-weight:500}.project details[open] summary::after{content:"−"}
+.detail-copy{font-size:.9rem;color:var(--muted);margin-top:14px}.detail-copy strong{color:var(--ink)}
+.experience-list{display:grid;gap:13px;margin-left:12px;padding-left:27px;border-left:1px solid var(--line)}
+.job{position:relative;padding:19px 22px;background:var(--surface);border:1px solid var(--line);border-radius:15px}
+.job::before{content:"";position:absolute;left:-35px;top:24px;width:13px;height:13px;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--line);border-radius:50%}
+.job summary{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.job summary::after{content:"+";color:var(--accent);font-size:1.5rem;font-weight:400}
+.job[open] summary::after{content:"−"}
+.job small{display:block;font-size:.75rem;font-weight:840;color:var(--accent)}
+.job strong{display:block;font-size:1.02rem;line-height:1.35;margin:4px 0}
+.job time{display:block;font-size:.8rem;color:var(--muted)}
+.job p{color:var(--muted);font-size:.9rem;margin:13px 0 0;padding-top:12px;border-top:1px solid var(--line)}
+.education-list{display:grid;gap:27px;padding-left:31px;margin-left:9px;border-left:1px solid var(--line)}
+.education-item{position:relative}
+.education-item::before{content:"";position:absolute;left:-39px;top:5px;height:14px;width:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--line)}
+.education-item small{color:var(--accent);font-weight:840;font-size:.75rem;letter-spacing:.055em}
+.education-item h3{margin:7px 0 2px;font-size:1.18rem}.education-item p{color:var(--muted);font-size:.9rem;margin:0}
+.skill-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.skill-card{padding:25px;border-radius:19px;background:var(--surface);border:1px solid var(--line);transition:transform .25s,box-shadow .25s}
+.skill-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.skill-card h3{font-size:1.04rem;margin:0 0 18px}.skill-card ul{padding:0;margin:0;list-style:none}
+.skill-card li{padding:9px 0;border-top:1px solid var(--line);font-size:.89rem;color:var(--muted)}
+.language-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.language{background:var(--surface);padding:23px;border:1px solid var(--line);border-radius:17px;transition:transform .25s}
+.language:hover{transform:translateY(-3px)}.language strong{display:block;font-size:1.05rem}.language span{display:block;margin-top:6px;font-size:.86rem;color:var(--muted)}
+.availability{position:relative;overflow:hidden;background:#132830;color:#eff7f0;padding:87px 0}
+.availability::before{content:"";position:absolute;top:-180px;right:-230px;width:530px;height:530px;border:1px solid #c8eaa23a;border-radius:50%;box-shadow:0 0 0 92px #a9d59008,0 0 0 180px #a9d59006}
+.availability-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center;gap:66px;position:relative}
+.availability .eyebrow{color:#d6f3b2}.availability h2{color:#fff}.availability p{color:#c4d6d0;font-size:1.04rem;max-width:620px}
+.availability .btn-primary{background:#d7efa8;color:#152a2c}.availability .btn{border-color:#7c988c}
+.availability .btn-primary{border-color:transparent}
+.facts{display:grid;gap:13px}.fact{display:flex;align-items:center;gap:15px;background:#ffffff0d;border:1px solid #476166;border-radius:15px;padding:18px 22px}
+.fact strong{min-width:62px;font-size:1.25rem;color:#d7efa8}.fact span{font-size:.87rem;color:#d7e1dd}
+.contact{background:var(--surface);padding:88px 0}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:55px}
+.contact p{color:var(--muted);font-size:1.02rem;max-width:520px}
+.contact-links{padding:13px 25px;background:var(--soft);border:1px solid var(--line);border-radius:20px}
+.contact-links a{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:17px 0;border-bottom:1px solid var(--line);font-size:.92rem;font-weight:790;overflow-wrap:anywhere;transition:color .2s}
+.contact-links a:last-child{border-bottom:0}.contact-links a:hover{color:var(--accent)}.contact-links a span{font-size:1.3rem;color:var(--accent)}
+footer{background:var(--bg);padding:24px 0;border-top:1px solid var(--line);font-size:.81rem;color:var(--muted)}
+.footer-row{display:flex;justify-content:space-between;gap:16px;align-items:center}footer a{color:var(--accent);font-weight:800}
+.hero-copy>*{animation:slide-in .74s both cubic-bezier(.2,.7,.2,1)}
+.hero-copy>:nth-child(2){animation-delay:.12s}.hero-copy>:nth-child(3){animation-delay:.22s}.hero-copy>:nth-child(4){animation-delay:.31s}.hero-copy>:nth-child(5){animation-delay:.4s}
+.hero-copy>:nth-child(6){animation-delay:.48s}.photo-card{animation:slide-in .88s .16s both cubic-bezier(.2,.7,.2,1)}
+@keyframes slide-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@keyframes chip-pulse{0%,100%{box-shadow:0 0 0 4px #43a16d25}50%{box-shadow:0 0 0 8px #43a16d0d}}
+.reveal{transition:opacity .68s,transform .72s cubic-bezier(.2,.7,.2,1);transition-delay:var(--stagger,0ms)}
+.reveal.motion-pending{opacity:0;transform:translateY(22px)}.reveal.motion-pending.visible{opacity:1;transform:none}
+@media(max-width:1080px){.nav-links{gap:13px}.hero-layout{gap:36px}.nav-links a{font-size:.79rem}}
+@media(max-width:960px){
+.nav{min-height:70px}.menu-btn{display:grid}
+.nav-links{display:none;position:absolute;left:0;top:100%;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px 25px 19px;background:var(--surface);box-shadow:var(--shadow);border-bottom:1px solid var(--line)}
+.nav-links.open{display:flex}.nav-links a{font-size:.96rem;padding:12px 4px}.nav-links a::after{display:none}
+.hero-layout,.split,.availability-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+.photo-card{margin:0;max-width:445px}
+.section{padding:77px 0}.hero{padding:66px 0 78px}
+.skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.language-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
+@media(max-width:610px){
+html{scroll-padding-top:76px}.wrap{width:calc(100% - 34px)}.brand{font-size:.93rem;gap:9px}.mark{width:36px;height:36px}.nav-right{gap:8px}
+.hero{padding:52px 0 64px}.hero h1{font-size:clamp(2.8rem,11.5vw,4.2rem);margin:21px 0 19px}
+.hero-layout{gap:27px}.btns{margin-top:24px}.hero-copy .btn{flex:1 1 auto}
+.photo-card{padding:10px;border-radius:20px;max-width:100%;margin:0}.photo-window{border-radius:13px}
+.photo-window img{aspect-ratio:1 / 1.04;object-position:center 29%}
+.photo-sticker{top:17px;right:8px;font-size:.68rem;transform:rotate(3deg)}
+.photo-caption{padding:15px 5px 4px}.photo-caption strong{font-size:1rem}
+.proof-grid{grid-template-columns:1fr;gap:0;padding:11px 0}.proof-grid>div,.proof-grid>div:first-child{border-right:0;border-bottom:1px solid var(--line);padding:13px 0}.proof-grid>div:last-child{border-bottom:0}
+.section{padding:66px 0}.section-head{display:block}.section-head p{margin-top:15px}.foci,.project-grid,.skill-grid,.language-grid{grid-template-columns:1fr}
+.focus small{margin-bottom:5px}.project{padding:23px}.project h3{font-size:1.31rem}
+.experience-list{margin-left:8px;padding-left:22px}.job::before{left:-30px}.job{padding:18px}
+.availability{padding:68px 0}.contact{padding:68px 0}.contact-links{padding:9px 17px}
+.footer-row{flex-direction:column;align-items:flex-start;gap:7px}
+}
+@media(max-width:380px){.brand{font-size:.84rem}.mark{width:34px;height:34px}.icon-btn{width:37px;height:37px}.photo-sticker{font-size:.61rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation:none!important;transition:none!important}.reveal.motion-pending{opacity:1!important;transform:none!important}}
+@media print{header,#reading-progress,.scroll-hint{display:none!important}body{background:#fff;color:#000}.section,.contact,.availability{padding:30px 0;break-inside:avoid}}
 </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header>
-    <nav class="nav wrap" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Bhanu Annabathula home"><span class="mark">BA.</span><span>Bhanu Annabathula</span></a>
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">Menu ☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a class="nav-cta" href="#contact">Get in touch ↗</a>
-      </div>
-    </nav>
-    <div id="reading-progress" aria-hidden="true"></div>
-  </header>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="reading-progress" aria-hidden="true"></div>
+<header><div class="wrap nav">
+<a class="brand" href="#home" aria-label="Back to Bhanu Annabathula home"><span class="mark">BA.</span><span>Bhanu Annabathula</span></a>
+<div class="nav-right">
+<nav class="nav-links" id="nav-links" aria-label="Main navigation">
+<a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+</nav>
+<button id="theme-toggle" type="button" class="icon-btn" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle dark or light mode"><span id="theme-icon" aria-hidden="true">☾</span></button>
+<button id="menu-toggle" type="button" class="icon-btn menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">☰</button>
+</div></div></header>
+<main id="main">
+<section class="hero" id="home"><div class="wrap hero-layout">
+<div class="hero-copy">
+<div class="chip">Open to 2027 internship opportunities</div>
+<h1><span>Hi, I'm Bhanu.</span><span><em>Business without borders.</em></span></h1>
+<p class="lead">I'm an MSc International Business student at KEDGE Business School in Bordeaux, bringing together business analytics, market research and commercial experience to understand how companies grow across borders.</p>
+<div class="btns"><a href="#projects" class="btn btn-primary">Explore my work ↗</a><a href="assets/Bhanu_Annabathula_CV.pdf" class="btn" download="Bhanu_Annabathula_CV.pdf">Download CV ↓</a></div>
+<div class="location">Bordeaux, France · International outlook · Six-month internship search</div>
+<a href="#about" class="scroll-hint"><span aria-hidden="true">↓</span> Scroll to explore</a>
+</div>
+<div class="photo-card" aria-label="Bhanu Annabathula portrait and introduction">
+<div class="photo-sticker">International mindset ↗</div>
+<div class="photo-window"><img src="assets/bhanu-profile.webp" width="720" height="720" decoding="async" fetchpriority="high" alt="Bhanu Annabathula wearing a beige blazer and white shirt"></div>
+<div class="photo-caption"><div><strong>Bhanu Annabathula</strong><small>International Business · Strategy · Research</small></div><span class="photo-arrow" aria-hidden="true">↗</span></div>
+</div></div></section>
+<div class="proof"><div class="wrap proof-grid" aria-label="At a glance">
+<div><strong>KEDGE Business School</strong><span>MSc International Business · Bordeaux</span></div>
+<div><strong>Business Analytics</strong><span>BBA foundation · GITAM</span></div>
+<div><strong>International Outlook</strong><span>Market entry · Research · Business development</span></div>
+</div></div>
+<section class="section" id="about"><div class="wrap split">
+<div class="reveal"><span class="eyebrow">01 / About</span><h2>Curious about how businesses cross borders.</h2></div>
+<div class="prose reveal"><p>I'm pursuing an MSc in International Business at KEDGE Business School in Bordeaux, France. My undergraduate education in Business Analytics at GITAM shaped how I approach questions: examine the data, identify patterns and connect insights to practical decisions.</p>
+<p>My professional experience includes business development, recruitment and customer-facing work. I'm particularly interested in international market entry, market research, commercial strategy and cross-cultural management.</p>
+<div class="foci"><div class="focus"><small>01</small>International market entry</div><div class="focus"><small>02</small>Research &amp; analytics</div><div class="focus"><small>03</small>Cross-cultural collaboration</div></div>
+</div></div></section>
+<section class="section alt" id="projects"><div class="wrap">
+<div class="section-head reveal"><div><span class="eyebrow">02 / Selected academic work</span><h2>Projects with a practical lens.</h2></div><p>Explore each project for its business question and research approach. Coursework and research are presented without claiming results that haven't been established.</p></div>
+<div class="project-grid">
+<article class="project reveal"><span class="project-kicker">01 · Thesis research · In progress</span><h3>Exporting Bordeaux Wine to India</h3><p>Exploring how importer partnerships can help Bordeaux wine exporters navigate barriers to entering the Indian market.</p><div class="tags"><span>Market entry</span><span>International trade</span><span>Partnerships</span></div>
+<details><summary>Explore project</summary><div class="detail-copy"><strong>Research question:</strong> How can local importer partnerships help Bordeaux wine exporters overcome market-entry barriers?<br><br><strong>Approach:</strong> Literature on internationalisation, export barriers, distribution and business networks, focusing on the Indian wine market. This thesis is in progress.</div></details></article>
+<article class="project reveal"><span class="project-kicker">02 · Industry analysis</span><h3>French Games &amp; Toys Market</h3><p>Examining sector segmentation, competition, regulation, seasonality and changing consumer demand in France.</p><div class="tags"><span>Market research</span><span>Industry analysis</span></div>
+<details><summary>Explore project</summary><div class="detail-copy"><strong>Business question:</strong> How can companies identify strategic segments and new opportunities?<br><br><strong>Approach:</strong> Competitive landscape research, regulation, demographic change and opportunities from the adult “kidult” market.</div></details></article>
+<article class="project reveal"><span class="project-kicker">03 · International management</span><h3>Cross-Cultural Management Practices</h3><p>Interview-based coursework on transferring management practices between multinational headquarters and foreign subsidiaries.</p><div class="tags"><span>Interviews</span><span>Cross-cultural teams</span></div>
+<details><summary>Explore project</summary><div class="detail-copy"><strong>Business question:</strong> What practices travel across borders, and what influences successful implementation?<br><br><strong>Approach:</strong> Interviewing business professionals and comparing factors affecting local acceptance, coordination and implementation.</div></details></article>
+<article class="project reveal"><span class="project-kicker">04 · E-commerce coursework</span><h3>Premium Brand Strategy on Amazon.fr</h3><p>Exploring premium positioning, customer needs and digital merchandising for a potential Amazon France launch.</p><div class="tags"><span>E-commerce</span><span>Brand positioning</span></div>
+<details><summary>Explore project</summary><div class="detail-copy"><strong>Business question:</strong> How can a premium brand stand out in a competitive marketplace?<br><br><strong>Approach:</strong> Customer profiling, competitor review, differentiation and evaluation of the brand's website and e-commerce pages.</div></details></article>
+</div></div></section>
+<section class="section" id="experience"><div class="wrap split">
+<div class="reveal"><span class="eyebrow">03 / Experience</span><h2>Practical experience across business and people operations.</h2><p class="intro">Select a role to explore responsibilities and experience.</p></div>
+<div class="experience-list reveal">
+<details class="job" open><summary><span><small>TES Packaging Pvt. Ltd. · Hyderabad</small><strong>Business Developer</strong><time>Feb 2024 – Jun 2024</time></span></summary><p>Researched B2B growth opportunities and competitor activity, prepared proposals, and coordinated client communication, sales reporting and administration.</p></details>
+<details class="job"><summary><span><small>Chandra Financial Services · Hyderabad</small><strong>Talent Agent</strong><time>Oct 2023 – Jan 2024</time></span></summary><p>Sourced and screened candidates, coordinated interviews with hiring stakeholders, and maintained recruitment records.</p></details>
+<details class="job"><summary><span><small>Cinebook Entertainment Pvt. Ltd. · Hyderabad</small><strong>Human Resources Assistant</strong><time>May 2023 – Aug 2023</time></span></summary><p>Researched recruitment channels, supported hiring processes, arranged interviews and coordinated candidate communication.</p></details>
+<details class="job"><summary><span><small>Firstwin Freight India Pvt. Ltd. · Hyderabad</small><strong>Business Developer</strong><time>Jan 2023 – Apr 2023</time></span></summary><p>Supported client relationships, business development research, commercial presentations and proposals in freight and logistics.</p></details>
+<details class="job"><summary><span><small>Black &amp; White Cosmetics / Cou Cou Cyber · Bordeaux</small><strong>Customer Service &amp; Retail Support</strong><time>Sep 2025 – Jan 2026</time></span></summary><p>Assisted customers, supported stock replenishment, and helped organise day-to-day service operations.</p></details>
+</div></div></section>
+<section class="section alt" id="education"><div class="wrap split">
+<div class="reveal"><span class="eyebrow">04 / Education</span><h2>Analytics roots. An international outlook.</h2><p class="intro">Bringing data-driven thinking into international management.</p></div>
+<div class="education-list reveal">
+<div class="education-item"><small>2026–2027 · In progress</small><h3>MSc International Business (M2)</h3><p>KEDGE Business School · Bordeaux, France</p></div>
+<div class="education-item"><small>2025–2026</small><h3>Master in Management — M1</h3><p>KEDGE Business School · Bordeaux, France</p></div>
+<div class="education-item"><small>2020–2023</small><h3>BBA — Business Analytics</h3><p>GITAM University · Hyderabad, India</p></div>
+</div></div></section>
+<section class="section soft" id="skills"><div class="wrap">
+<div class="section-head reveal"><div><span class="eyebrow">05 / Skills</span><h2>What I bring to the team.</h2></div><p>A blend of business, analysis and communication experience.</p></div>
+<div class="skill-grid">
+<div class="skill-card reveal"><h3>Business &amp; Strategy</h3><ul><li>B2B prospect research</li><li>Business development</li><li>Market &amp; competitor analysis</li><li>Client relationships</li><li>Commercial proposals</li></ul></div>
+<div class="skill-card reveal"><h3>Analytics &amp; Tools</h3><ul><li>Business analytics</li><li>Microsoft Excel &amp; PowerPoint</li><li>Google Workspace</li><li>Canva &amp; presentations</li><li>SQL fundamentals</li></ul></div>
+<div class="skill-card reveal"><h3>Collaboration &amp; Research</h3><ul><li>Stakeholder coordination</li><li>Research interviews</li><li>Cross-cultural teamwork</li><li>Recruitment support</li><li>Project coordination</li></ul></div>
+</div></div></section>
+<section class="section" id="languages"><div class="wrap">
+<div class="section-head reveal"><div><span class="eyebrow">06 / Languages</span><h2>Connecting across cultures.</h2></div><p>Language proficiency as stated on my current CV.</p></div>
+<div class="language-grid"><div class="language reveal"><strong>Telugu</strong><span>Native</span></div><div class="language reveal"><strong>English</strong><span>B2 · Professional</span></div><div class="language reveal"><strong>Hindi</strong><span>Professional</span></div><div class="language reveal"><strong>French</strong><span>A1 · Learning</span></div></div>
+</div></section>
+<section class="availability" id="availability"><div class="wrap availability-grid">
+<div class="reveal"><span class="eyebrow">07 / Internship opportunities</span><h2>Looking for a six-month internship in 2027.</h2>
+<p>I'm interested in international business, business development, strategy, marketing, market research and operations. Open to positions in France and internationally, including on-site, hybrid or remote roles where appropriate.</p>
+<div class="btns"><a class="btn btn-primary" href="mailto:bhanusriphanikumar@gmail.com?subject=2027%20Internship%20Opportunity">Discuss an opportunity ↗</a><a class="btn" href="assets/Bhanu_Annabathula_CV.pdf" download="Bhanu_Annabathula_CV.pdf">Download CV ↓</a></div></div>
+<div class="facts reveal"><div class="fact"><strong>2027</strong><span>Target internship year</span></div><div class="fact"><strong>6 mo</strong><span>Mandatory MSc internship duration</span></div><div class="fact"><strong>Global</strong><span>France and international opportunities</span></div></div>
+</div></section>
+<section class="contact" id="contact"><div class="wrap contact-grid">
+<div class="reveal"><span class="eyebrow">08 / Contact</span><h2>Let's start a conversation.</h2><p>If you're recruiting for an internship or would like to connect about international business or market research, feel free to reach out.</p><div class="btns"><a href="mailto:bhanusriphanikumar@gmail.com" class="btn btn-primary">Email me ↗</a></div></div>
+<div class="contact-links reveal"><a href="mailto:bhanusriphanikumar@gmail.com">bhanusriphanikumar@gmail.com <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/bhanu-sri-phani-kumar-35637a273/" target="_blank" rel="noopener noreferrer">LinkedIn profile <span aria-hidden="true">↗</span></a><a href="https://github.com/bhanu-gif-creator" target="_blank" rel="noopener noreferrer">GitHub profile <span aria-hidden="true">↗</span></a><a href="assets/Bhanu_Annabathula_CV.pdf" download="Bhanu_Annabathula_CV.pdf">Download my CV <span aria-hidden="true">↓</span></a></div>
+</div></section>
+</main>
+<footer><div class="wrap footer-row"><span>© <span id="year">2026</span> Bhanu Annabathula · Bordeaux, France</span><a href="#home">Back to top ↑</a></div></footer>
+<script>
+(function(){
+  'use strict';
+  var root=document.documentElement, year=document.getElementById('year'), themeBtn=document.getElementById('theme-toggle'), themeIcon=document.getElementById('theme-icon');
+  year.textContent=new Date().getFullYear();
+  function refreshTheme(){
+    var dark=root.dataset.theme==='dark';
+    themeIcon.textContent=dark?'☀':'☾';
+    themeBtn.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+    themeBtn.setAttribute('aria-pressed',String(dark));
+    document.querySelector('meta[name="theme-color"]').setAttribute('content',dark?'#101b20':'#f7f9f5');
+  }
+  themeBtn.addEventListener('click',function(){
+    var next=root.dataset.theme==='dark'?'light':'dark';
+    root.dataset.theme=next;
+    try{localStorage.setItem('bhanu-theme',next);}catch(e){}
+    refreshTheme();
+  });
+  refreshTheme();
 
-  <main id="main">
-    <section class="hero" id="home">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="status"><span class="status-dot" aria-hidden="true"></span> Exploring internship opportunities</div>
-          <h1>Hi, I'm Bhanu.<span>Think global.</span>Build practical.</h1>
-          <p class="hero-lead">MSc International Business student at KEDGE Business School, bringing together business analytics, market research, and an interest in how companies grow across borders.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-secondary" href="assets/Bhanu_Annabathula_CV.pdf" download>Download CV ↓</a>
-          </div>
-          <div class="location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 5.25-8 11-8 11S4 15.25 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.4"/></svg>Bordeaux, France · Open to international opportunities</div>
-          <a class="scroll-hint" href="#about"><span aria-hidden="true">↓</span> Scroll to explore</a>
-        </div>
-        <div class="hero-visual" aria-label="Bhanu Annabathula profile card">
-          <div class="profile-panel">
-            <div class="panel-ring" aria-hidden="true"></div>
-            <div class="panel-top"><span>PORTFOLIO / 2026</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
-            <div class="portrait-frame"><img src="assets/bhanu-profile.webp" alt="Bhanu Annabathula wearing a beige blazer and white shirt" width="720" height="720" decoding="async" fetchpriority="high"></div>
-            <div class="panel-main"><div class="monogram" aria-hidden="true">BA.</div><h2>International Business</h2><p>Strategy · Research · Analytics</p></div>
-          </div>
-          <div class="floating-pill"><span class="pill-icon">↗</span><div><strong>Business, without borders</strong><small>France · International focus</small></div></div>
-        </div>
-      </div>
-    </section>
+  var menu=document.getElementById('menu-toggle'), links=document.getElementById('nav-links');
+  function closeMenu(){links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open menu');menu.textContent='☰';}
+  menu.addEventListener('click',function(){
+    var opened=links.classList.toggle('open');
+    menu.setAttribute('aria-expanded',String(opened));
+    menu.setAttribute('aria-label',opened?'Close menu':'Open menu');
+    menu.textContent=opened?'×':'☰';
+  });
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+  document.addEventListener('click',function(e){if(!e.target.closest('.nav-right')&&links.classList.contains('open'))closeMenu();});
 
-    <div class="metric-band" aria-label="At a glance"><div class="wrap metric-grid">
-      <div class="metric"><strong>KEDGE Business School</strong><span>MSc International Business</span></div>
-      <div class="metric"><strong>Business Analytics</strong><span>Undergraduate background</span></div>
-      <div class="metric"><strong>International outlook</strong><span>Trade, strategy &amp; market research</span></div>
-    </div></div>
+  var progress=document.getElementById('reading-progress'),scrollQueued=false;
+  function updateProgress(){
+    var total=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+    progress.style.transform='scaleX('+Math.min(1,Math.max(0,scrollY/total))+')';
+    scrollQueued=false;
+  }
+  function queueProgress(){if(!scrollQueued){scrollQueued=true;requestAnimationFrame(updateProgress);}}
+  addEventListener('scroll',queueProgress,{passive:true});addEventListener('resize',queueProgress,{passive:true});updateProgress();
 
-    <section class="section" id="about"><div class="wrap about-grid">
-      <div><span class="eyebrow">01 / About</span><h2 class="section-title">Curious about how businesses cross borders.</h2></div>
-      <div class="about-copy"><p>I'm currently pursuing an MSc in International Business at KEDGE Business School in Bordeaux, France. My academic background in Business Analytics shaped how I approach challenges: understand the data, ask good questions, and connect insights to decisions.</p><p>My interests include international market entry, business development, cross-cultural management, and market research. I enjoy projects that combine strategic thinking with practical business problems.</p><div class="focus-card"><div class="focus"><span class="focus-number">01</span>International market entry</div><div class="focus"><span class="focus-number">02</span>Business research &amp; analytics</div><div class="focus"><span class="focus-number">03</span>Cross-cultural collaboration</div></div></div>
-    </div></section>
-
-    <section class="section projects" id="projects"><div class="wrap">
-      <span class="eyebrow">02 / Selected academic work</span><h2 class="section-title">Projects that connect ideas to business.</h2><p class="section-intro">A selection of research topics and coursework exploring international markets, industry dynamics, and the realities of working across cultures.</p>
-      <div class="project-grid">
-        <article class="project-card"><span class="project-number">PROJECT 01 / RESEARCH</span><h3>Exporting Bordeaux Wine to India</h3><p>Thesis research on how local importer partnerships can help Bordeaux wine exporters navigate barriers to entering the Indian market.</p><div class="project-tag"><span>International Trade</span><span>Market Entry</span></div></article>
-        <article class="project-card"><span class="project-number">PROJECT 02 / INDUSTRY</span><h3>French Games &amp; Toys Sector</h3><p>Strategic market analysis examining industry segmentation, competitive pressures, regulation, and opportunities in the French toys market.</p><div class="project-tag"><span>Market Research</span><span>Strategy</span></div></article>
-        <article class="project-card"><span class="project-number">PROJECT 03 / MANAGEMENT</span><h3>Cross-Cultural Management Practices</h3><p>Team coursework using interviews to explore how multinational companies transfer management practices between headquarters and subsidiaries.</p><div class="project-tag"><span>Interviews</span><span>International Management</span></div></article>
-      </div>
-    </div></section>
-
-    <section class="section" id="education"><div class="wrap education-grid">
-      <div><span class="eyebrow">03 / Education</span><h2 class="section-title">A foundation in business, with a global perspective.</h2><p class="section-intro">Combining analytics with international business to build a practical, evidence-based approach.</p></div>
-      <div class="timeline">
-        <div class="timeline-entry"><span class="date">2026 — 2027 · IN PROGRESS</span><h3>MSc International Business</h3><p>KEDGE Business School · Bordeaux, France</p></div>
-        <div class="timeline-entry"><span class="date">2025 — 2026</span><h3>Master in Management — M1</h3><p>KEDGE Business School · Bordeaux, France</p></div>
-        <div class="timeline-entry"><span class="date">UNDERGRADUATE STUDIES</span><h3>Bachelor's in Business Analytics</h3><p>GITAM Hyderabad Business School · India</p></div>
-      </div>
-    </div></section>
-
-    <section class="section skills" id="skills"><div class="wrap skills-wrap">
-      <div><span class="eyebrow">04 / Skills &amp; interests</span><h2 class="section-title">What I bring to the table.</h2><p class="section-intro">Areas I study, practice, and continue to develop through coursework and projects.</p></div>
-      <div>
-        <div class="skill-group"><h3>Business &amp; Strategy</h3><div class="skill-tags"><span>International Business</span><span>Market Research</span><span>Market Entry</span><span>Business Development</span><span>Competitive Analysis</span></div></div>
-        <div class="skill-group"><h3>Analytical &amp; Problem-Solving</h3><div class="skill-tags"><span>Business Analytics</span><span>Data Interpretation</span><span>Financial Analysis Coursework</span><span>Business Presentations</span></div></div>
-        <div class="skill-group"><h3>Collaboration &amp; Communication</h3><div class="skill-tags"><span>Cross-Cultural Management</span><span>Research Interviews</span><span>Team Projects</span><span>Negotiation Coursework</span></div></div>
-      </div>
-    </div></section>
-
-    <section class="contact" id="contact"><div class="wrap contact-box">
-      <div><span class="eyebrow">05 / Contact</span><h2>Let's build something<br />meaningful.</h2><p>Interested in connecting about internships, international business, market research, or collaboration? You can contact me directly by email, connect on LinkedIn, or download my CV.</p></div>
-      <div class="contact-actions"><a class="btn" href="mailto:bhanusriphanikumar@gmail.com">Email me ↗</a><a class="btn" href="https://www.linkedin.com/in/bhanu-sri-phani-kumar-35637a273/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="assets/Bhanu_Annabathula_CV.pdf" download>Download CV ↓</a></div>
-    </div></section>
-  </main>
-
-  <footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Bhanu Annabathula. Made with purpose.</span><span>Based in Bordeaux, France · <a href="#home">Back to top ↑</a></span></div></footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const toggle = document.querySelector('.menu-toggle');
-    const links = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => {
-      const isOpen = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
-    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
-  
-    // Reveal content naturally as visitors scroll; never hide it on unsupported browsers.
-    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.metric, #about .about-grid > div, #about .focus, #projects .eyebrow, #projects .section-title, #projects .section-intro, #projects .project-card, #education .education-grid > div:first-child, #education .timeline-entry, #skills .skills-wrap > div:first-child, #skills .skill-group, #contact .contact-box > div, #contact .contact-actions').forEach(el=>el.classList.add('reveal'));
-      const observer=new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}
-        });
-      },{threshold:.08,rootMargin:'0px 0px -15px 0px'});
-      document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-      document.documentElement.classList.add('motion-ready');
-    }
-
-
-    // Reading progress, reveal stagger, and a gentle mouse effect.
-    const progressEl=document.getElementById('reading-progress');
-    let progressPending=false;
-    function progressUpdate(){
-      const available=Math.max(1,document.documentElement.scrollHeight-innerHeight);
-      progressEl.style.transform='scaleX('+Math.min(1,Math.max(0,scrollY/available))+')';
-      progressPending=false;
-    }
-    function scheduleProgress(){if(!progressPending){progressPending=true;requestAnimationFrame(progressUpdate);}}
-    addEventListener('scroll',scheduleProgress,{passive:true});
-    addEventListener('resize',scheduleProgress,{passive:true});
-    progressUpdate();
-    ['.metric','.focus','.project-card','.timeline-entry','.skill-group'].forEach(selector=>{
-      document.querySelectorAll(selector).forEach((node,index)=>node.style.setProperty('--stagger',Math.min(index,4)*85+'ms'));
-    });
-    const lowMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const photoPanel=document.querySelector('.profile-panel');
-    if(photoPanel && !lowMotion && matchMedia('(hover: hover) and (pointer: fine)').matches){
-      photoPanel.addEventListener('pointermove',e=>{
-        const b=photoPanel.getBoundingClientRect();
-        photoPanel.style.setProperty('--tilt-x',(((.5-(e.clientY-b.top)/b.height)*5).toFixed(2))+'deg');
-        photoPanel.style.setProperty('--tilt-y',(((((e.clientX-b.left)/b.width)-.5)*6).toFixed(2))+'deg');
-        photoPanel.classList.add('is-tilting');
-      },{passive:true});
-      photoPanel.addEventListener('pointerleave',()=>{
-        photoPanel.classList.remove('is-tilting');
-        photoPanel.style.setProperty('--tilt-x','0deg');
-        photoPanel.style.setProperty('--tilt-y','0deg');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce&&'IntersectionObserver' in window){
+    var items=document.querySelectorAll('.reveal');
+    var watch=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){entry.target.classList.add('visible');watch.unobserve(entry.target);}
       });
-    }
-    const timelineEl=document.querySelector('.timeline');
-    if(timelineEl){
-      if(!lowMotion&&'IntersectionObserver' in window){
-        const observer=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){timelineEl.classList.add('line-visible');observer.disconnect();}},{threshold:.1});
-        observer.observe(timelineEl);
-      }else{timelineEl.classList.add('line-visible');}
-    }
-    if('IntersectionObserver' in window){
-      const navAnchors=[...document.querySelectorAll('.nav-links a[href^="#"]')];
-      const pageSections=navAnchors.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-      const current=new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-          if(!entry.isIntersecting)return;
-          navAnchors.forEach(a=>{
-            if(a.getAttribute('href')==='#'+entry.target.id)a.setAttribute('aria-current','location');
-            else a.removeAttribute('aria-current');
-          });
-        });
-      },{rootMargin:'-25% 0px -55% 0px',threshold:0});
-      pageSections.forEach(sec=>current.observe(sec));
-    }
+    },{threshold:0.07,rootMargin:'0px 0px -15px 0px'});
+    document.querySelectorAll('.project,.skill-card,.language').forEach(function(el,i){el.style.setProperty('--stagger',(i%4)*65+'ms');});
+    items.forEach(function(el){el.classList.add('motion-pending');watch.observe(el);});
+  }
 
+  if('IntersectionObserver' in window){
+    var navItems=Array.from(links.querySelectorAll('a[href^="#"]'));
+    var sections=navItems.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+    var activeObserver=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting)return;
+        navItems.forEach(function(a){if(a.getAttribute('href')==='#'+entry.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
+      });
+    },{rootMargin:'-23% 0px -58% 0px',threshold:0});
+    sections.forEach(function(el){activeObserver.observe(el);});
+  }
+})();
 </script>
 </body>
 </html>
