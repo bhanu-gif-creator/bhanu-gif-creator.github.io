@@ -181,6 +181,14 @@ html{scroll-padding-top:76px}.wrap{width:calc(100% - 34px)}.brand{font-size:.93r
 @media(max-width:380px){.brand{font-size:.84rem}.mark{width:34px;height:34px}.icon-btn{width:37px;height:37px}.photo-sticker{font-size:.61rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation:none!important;transition:none!important}.reveal.motion-pending{opacity:1!important;transform:none!important}}
 @media print{header,#reading-progress,.scroll-hint{display:none!important}body{background:#fff;color:#000}.section,.contact,.availability{padding:30px 0;break-inside:avoid}}
+
+/* Clear study-year breakdown for KEDGE Programme Grande École */
+.programme-years{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:18px}
+.programme-year{min-width:0;padding:16px 17px;background:var(--soft);border:1px solid var(--line);border-radius:13px}
+.programme-year .year-label{display:block;color:var(--accent);font-size:.75rem;letter-spacing:.055em;font-weight:850;text-transform:uppercase;margin-bottom:7px}
+.programme-year strong{display:block;color:var(--ink);font-size:.96rem;line-height:1.35}
+.programme-year>span:last-child{display:block;color:var(--muted);font-size:.79rem;margin-top:5px}
+@media(max-width:610px){.programme-years{grid-template-columns:1fr}.programme-year{padding:14px 16px}}
 </style>
 </head>
 <body>
@@ -211,7 +219,7 @@ html{scroll-padding-top:76px}.wrap{width:calc(100% - 34px)}.brand{font-size:.93r
 <div class="photo-caption"><div><strong>Bhanu Annabathula</strong><small>International Business · Strategy · Research</small></div><span class="photo-arrow" aria-hidden="true">↗</span></div>
 </div></div></section>
 <div class="proof"><div class="wrap proof-grid" aria-label="At a glance">
-<div><strong>KEDGE Business School</strong><span>MSc International Business · Bordeaux</span></div>
+<div><strong>KEDGE Business School</strong><span>Programme Grande École · M1 + M2</span></div>
 <div><strong>Business Analytics</strong><span>BBA foundation · GITAM</span></div>
 <div><strong>International Outlook</strong><span>Market entry · Research · Business development</span></div>
 </div></div>
@@ -245,8 +253,15 @@ html{scroll-padding-top:76px}.wrap{width:calc(100% - 34px)}.brand{font-size:.93r
 <section class="section alt" id="education"><div class="wrap split">
 <div class="reveal"><span class="eyebrow">04 / Education</span><h2>Analytics roots. An international outlook.</h2><p class="intro">Bringing data-driven thinking into international management.</p></div>
 <div class="education-list reveal">
-<div class="education-item"><small>2026–2027 · In progress</small><h3>MSc International Business (M2)</h3><p>KEDGE Business School · Bordeaux, France</p></div>
-<div class="education-item"><small>2025–2026</small><h3>Master in Management — M1</h3><p>KEDGE Business School · Bordeaux, France</p></div>
+<div class="education-item">
+<small>2025–2027 · Two-year master's programme</small>
+<h3>KEDGE Business School — Programme Grande École</h3>
+<p>Bordeaux, France</p>
+<div class="programme-years" aria-label="Programme Grande École study years">
+<div class="programme-year"><span class="year-label">M1 · 2025–2026</span><strong>Master in Management</strong><span>Completed first year</span></div>
+<div class="programme-year"><span class="year-label">M2 · 2026–2027</span><strong>Master's in International Business</strong><span>Currently studying</span></div>
+</div>
+</div>
 <div class="education-item"><small>2020–2023</small><h3>BBA — Business Analytics</h3><p>GITAM University · Hyderabad, India</p></div>
 </div></div></section>
 <section class="section soft" id="skills"><div class="wrap">
