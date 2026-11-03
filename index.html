@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#102832" />
+  <meta name="description" content="Bhanu Annabathula — MSc International Business student at KEDGE Business School with a background in Business Analytics. Explore projects, skills, and interests in international trade, market research, and business development." />
+  <title>Bhanu Annabathula | International Business Portfolio</title>
+  <style>
+    :root {
+      --ink: #163038;
+      --ink-deep: #102832;
+      --muted: #526970;
+      --accent: #caedb6;
+      --accent-deep: #21745e;
+      --line: #dce6e1;
+      --paper: #f7f9f5;
+      --white: #ffffff;
+      --soft: #ebf3ed;
+      --radius: 22px;
+      --shadow: 0 22px 58px rgba(22, 48, 56, .07);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #3c8e7c; outline-offset: 3px; }
+    .wrap { width: min(1140px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--accent-deep); font-size: .77rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: currentColor; }
+    .section { padding: 104px 0; }
+    .section-title { margin: 15px 0 14px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.13; letter-spacing: -.045em; font-weight: 800; }
+    .section-intro { max-width: 635px; margin: 0 0 40px; color: var(--muted); font-size: 1.06rem; }
+    .skip-link { position: absolute; left: -9999px; top: 0; padding: 8px 14px; background: white; z-index: 999; }
+    .skip-link:focus { left: 12px; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(247,249,245,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(22,48,56,.08); }
+    .nav { display: flex; justify-content: space-between; align-items: center; min-height: 76px; gap: 20px; }
+    .brand { display: inline-flex; gap: 11px; align-items: center; font-weight: 850; font-size: 1.02rem; letter-spacing: -.03em; }
+    .mark { display: grid; place-items: center; height: 38px; width: 38px; background: var(--ink-deep); color: var(--accent); border-radius: 11px; letter-spacing: -.06em; font-size: .94rem; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links > a { font-size: .88rem; font-weight: 650; color: #435b60; transition: color .2s; }
+    .nav-links > a:hover { color: var(--accent-deep); }
+    .nav-links .nav-cta { color: var(--white); background: var(--ink-deep); padding: 11px 18px; border-radius: 10px; }
+    .nav-links .nav-cta:hover { color: var(--accent); }
+    .menu-toggle { display: none; background: transparent; border: 1px solid var(--line); color: var(--ink); border-radius: 10px; padding: 7px 12px; cursor: pointer; }
+    .hero { padding: 97px 0 100px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.14fr .86fr; gap: 60px; align-items: center; }
+    .status { display: inline-flex; align-items: center; gap: 9px; padding: 8px 13px; border-radius: 999px; background: var(--soft); color: #276f54; font-size: .8rem; font-weight: 750; margin-bottom: 30px; }
+    .status-dot { height: 8px; width: 8px; border-radius: 50%; background: #36a56a; box-shadow: 0 0 0 4px #d6ead8; }
+    h1 { font-size: clamp(3.2rem, 6.1vw, 5.7rem); font-weight: 850; line-height: 1.06; letter-spacing: -.07em; margin: 0 0 22px; }
+    h1 span { display: block; color: var(--accent-deep); }
+    .hero-lead { max-width: 560px; font-size: clamp(1.08rem, 1.6vw, 1.22rem); color: var(--muted); margin: 0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 12px; padding: 14px 21px; border: 1px solid transparent; border-radius: 12px; font-weight: 800; font-size: .93rem; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--ink-deep); color: #fff; }
+    .btn-secondary { border-color: var(--line); background: #fff; color: var(--ink); }
+    .location { margin-top: 34px; color: var(--muted); font-size: .88rem; display: flex; gap: 8px; align-items: center; }
+    .location svg { width: 17px; height: 17px; }
+    .hero-visual { position: relative; padding: 28px 0 16px; }
+    .hero-visual::before { content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%; background: var(--accent); opacity: .38; right: -110px; top: -24px; filter: blur(22px); }
+    .profile-panel { position: relative; min-height: 445px; background: var(--ink-deep); color: #fff; border-radius: 27px; padding: 32px; box-shadow: 0 30px 65px rgba(16,40,50,.16); overflow: hidden; }
+    .panel-top { position: relative; display: flex; align-items: center; justify-content: space-between; color: #d1ded8; font-weight: 650; font-size: .86rem; }
+    .panel-top .dots { display: flex; gap: 6px; }
+    .dots i { display: inline-block; width: 7px; height: 7px; background: #688d86; border-radius: 50%; }
+    .panel-ring { position: absolute; right: -90px; top: 74px; width: 340px; height: 340px; border: 1px solid rgba(202,237,182,.32); border-radius: 50%; }
+    .panel-ring::before, .panel-ring::after { content: ""; position: absolute; inset: 30px; border: 1px solid rgba(202,237,182,.29); border-radius: 50%; }
+    .panel-ring::after { inset: 70px; background: rgba(202,237,182,.12); }
+    .panel-main { position: relative; margin-top: 85px; }
+    .monogram { color: var(--accent); font-size: clamp(6.5rem, 12vw, 10rem); letter-spacing: -.13em; line-height: 1; font-weight: 900; }
+    .panel-main h2 { font-size: 1.35rem; margin: 14px 0 3px; letter-spacing: -.02em; }
+    .panel-main p { color: #bfcec8; font-size: .91rem; margin: 0; }
+    .floating-pill { position: absolute; right: -29px; bottom: 37px; max-width: 240px; background: #fff; padding: 16px 18px; border-radius: 14px; box-shadow: var(--shadow); display: flex; gap: 12px; align-items: center; }
+    .pill-icon { width: 38px; height: 38px; display: grid; place-items: center; flex: 0 0 38px; border-radius: 11px; background: #dbf2d0; color: #206d53; font-weight: 900; }
+    .floating-pill strong { font-size: .81rem; display: block; line-height: 1.3; }
+    .floating-pill small { color: var(--muted); font-size: .73rem; }
+    .metric-band { background: #eaf1e9; border-top: 1px solid #e2eae0; border-bottom: 1px solid #e2eae0; }
+    .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding-block: 32px; }
+    .metric { border-right: 1px solid #ccd9d2; padding-left: 16px; }
+    .metric:first-child { padding-left: 0; }
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; font-size: 1.06rem; letter-spacing: -.03em; }
+    .metric span { color: var(--muted); font-size: .81rem; }
+    .about-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 90px; align-items: start; }
+    .about-copy { font-size: 1.12rem; line-height: 1.95; color: #3b535a; }
+    .about-copy p { margin: 0 0 22px; }
+    .focus-card { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 26px; }
+    .focus { padding: 17px; border-radius: 14px; background: #fff; border: 1px solid var(--line); font-size: .84rem; font-weight: 750; line-height: 1.4; }
+    .focus-number { display: block; font-weight: 900; font-size: .76rem; color: var(--accent-deep); margin-bottom: 16px; }
+    .projects { background: #fff; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .project-card { display: flex; flex-direction: column; border-radius: var(--radius); background: var(--paper); border: 1px solid #e6ece7; padding: 29px; min-height: 344px; transition: transform .22s, box-shadow .22s; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .project-number { font-size: .79rem; color: var(--accent-deep); font-weight: 850; letter-spacing: .1em; }
+    .project-card h3 { font-size: 1.4rem; line-height: 1.3; letter-spacing: -.032em; margin: 32px 0 13px; }
+    .project-card p { color: var(--muted); font-size: .91rem; margin: 0; }
+    .project-tag { margin-top: auto; padding-top: 30px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .project-tag span { color: #3a725d; background: #e4f0df; border-radius: 999px; font-size: .71rem; font-weight: 750; padding: 6px 10px; }
+    .education-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; }
+    .timeline { border-left: 1px solid #cbd9d1; padding-left: 31px; margin-left: 6px; }
+    .timeline-entry { position: relative; padding: 0 0 39px; }
+    .timeline-entry:last-child { padding-bottom: 0; }
+    .timeline-entry::before { content: ""; position: absolute; left: -39px; top: 5px; width: 15px; height: 15px; border-radius: 50%; background: var(--accent-deep); border: 4px solid var(--paper); box-shadow: 0 0 0 1px #a3c9ae; }
+    .date { color: var(--accent-deep); font-size: .8rem; font-weight: 850; letter-spacing: .07em; }
+    .timeline h3 { margin: 9px 0 3px; font-size: 1.23rem; letter-spacing: -.025em; }
+    .timeline p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .skills { background: #eaf1e9; }
+    .skills-wrap { display: grid; grid-template-columns: .75fr 1.25fr; gap: 75px; align-items: start; }
+    .skill-group { background: #fff; border-radius: var(--radius); padding: 28px 30px; margin-bottom: 15px; border: 1px solid #dce8dc; }
+    .skill-group h3 { font-size: 1rem; margin: 0 0 20px; letter-spacing: -.015em; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skill-tags span { border: 1px solid #dce6e1; border-radius: 9px; padding: 8px 12px; font-size: .82rem; color: #3e5459; background: #fafcf9; }
+    .contact { padding: 99px 0; background: var(--ink-deep); color: #fff; }
+    .contact-box { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+    .contact .eyebrow { color: var(--accent); }
+    .contact h2 { margin: 17px 0; font-size: clamp(2.3rem, 4.9vw, 4.4rem); line-height: 1.13; letter-spacing: -.055em; }
+    .contact p { max-width: 600px; color: #bdcecb; margin: 0; }
+    .contact .btn { background: var(--accent); color: var(--ink-deep); white-space: nowrap; }
+    footer { background: #0c2028; color: #a2b8b4; padding: 24px 0; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; font-size: .78rem; }
+    .footer-inner a { color: #def2d1; }
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid, .education-grid, .skills-wrap { grid-template-columns: 1fr; gap: 36px; }
+      .hero-grid { gap: 70px; }
+      .hero-visual { max-width: 530px; width: calc(100% - 23px); margin-inline: auto; }
+      .project-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-box { align-items: start; flex-direction: column; }
+      .metric-grid { gap: 14px; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 34px, 1140px); }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; width: 100%; padding: 18px 17px 23px; background: var(--paper); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 16px; }
+      .nav-links.open { display: flex; }
+      .nav-links .nav-cta { text-align: center; }
+      .hero { padding: 69px 0 80px; }
+      .hero-grid { gap: 52px; }
+      h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
+      .hero-visual { width: calc(100% - 16px); }
+      .profile-panel { min-height: 380px; padding: 24px; }
+      .panel-main { margin-top: 63px; }
+      .monogram { font-size: 8rem; }
+      .floating-pill { right: -16px; bottom: -18px; }
+      .metric-grid { grid-template-columns: 1fr; padding: 20px 0; gap: 0; }
+      .metric, .metric:first-child { border-right: 0; border-bottom: 1px solid #cbd9d1; padding: 14px 0; }
+      .metric:last-child { border-bottom: 0; }
+      .section { padding: 75px 0; }
+      .focus-card { grid-template-columns: 1fr; }
+      .focus-number { margin-bottom: 5px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 280px; }
+      .contact { padding: 75px 0; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Bhanu Annabathula home"><span class="mark">BA.</span><span>Bhanu Annabathula</span></a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">Menu ☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a class="nav-cta" href="#contact">Get in touch ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="status"><span class="status-dot" aria-hidden="true"></span> Exploring internship opportunities</div>
+          <h1>Hi, I'm Bhanu.<span>Think global.</span>Build practical.</h1>
+          <p class="hero-lead">MSc International Business student at KEDGE Business School, bringing together business analytics, market research, and an interest in how companies grow across borders.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#contact">Let's connect <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 5.25-8 11-8 11S4 15.25 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.4"/></svg>Bordeaux, France · Open to international opportunities</div>
+        </div>
+        <div class="hero-visual" aria-label="Bhanu Annabathula profile card">
+          <div class="profile-panel">
+            <div class="panel-ring" aria-hidden="true"></div>
+            <div class="panel-top"><span>PORTFOLIO / 2026</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="panel-main"><div class="monogram" aria-hidden="true">BA.</div><h2>International Business</h2><p>Strategy · Research · Analytics</p></div>
+          </div>
+          <div class="floating-pill"><span class="pill-icon">↗</span><div><strong>Business, without borders</strong><small>France · International focus</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="metric-band" aria-label="At a glance"><div class="wrap metric-grid">
+      <div class="metric"><strong>KEDGE Business School</strong><span>MSc International Business</span></div>
+      <div class="metric"><strong>Business Analytics</strong><span>Undergraduate background</span></div>
+      <div class="metric"><strong>International outlook</strong><span>Trade, strategy &amp; market research</span></div>
+    </div></div>
+
+    <section class="section" id="about"><div class="wrap about-grid">
+      <div><span class="eyebrow">01 / About</span><h2 class="section-title">Curious about how businesses cross borders.</h2></div>
+      <div class="about-copy"><p>I'm currently pursuing an MSc in International Business at KEDGE Business School in Bordeaux, France. My academic background in Business Analytics shaped how I approach challenges: understand the data, ask good questions, and connect insights to decisions.</p><p>My interests include international market entry, business development, cross-cultural management, and market research. I enjoy projects that combine strategic thinking with practical business problems.</p><div class="focus-card"><div class="focus"><span class="focus-number">01</span>International market entry</div><div class="focus"><span class="focus-number">02</span>Business research &amp; analytics</div><div class="focus"><span class="focus-number">03</span>Cross-cultural collaboration</div></div></div>
+    </div></section>
+
+    <section class="section projects" id="projects"><div class="wrap">
+      <span class="eyebrow">02 / Selected academic work</span><h2 class="section-title">Projects that connect ideas to business.</h2><p class="section-intro">A selection of research topics and coursework exploring international markets, industry dynamics, and the realities of working across cultures.</p>
+      <div class="project-grid">
+        <article class="project-card"><span class="project-number">PROJECT 01 / RESEARCH</span><h3>Exporting Bordeaux Wine to India</h3><p>Thesis research on how local importer partnerships can help Bordeaux wine exporters navigate barriers to entering the Indian market.</p><div class="project-tag"><span>International Trade</span><span>Market Entry</span></div></article>
+        <article class="project-card"><span class="project-number">PROJECT 02 / INDUSTRY</span><h3>French Games &amp; Toys Sector</h3><p>Strategic market analysis examining industry segmentation, competitive pressures, regulation, and opportunities in the French toys market.</p><div class="project-tag"><span>Market Research</span><span>Strategy</span></div></article>
+        <article class="project-card"><span class="project-number">PROJECT 03 / MANAGEMENT</span><h3>Cross-Cultural Management Practices</h3><p>Team coursework using interviews to explore how multinational companies transfer management practices between headquarters and subsidiaries.</p><div class="project-tag"><span>Interviews</span><span>International Management</span></div></article>
+      </div>
+    </div></section>
+
+    <section class="section" id="education"><div class="wrap education-grid">
+      <div><span class="eyebrow">03 / Education</span><h2 class="section-title">A foundation in business, with a global perspective.</h2><p class="section-intro">Combining analytics with international business to build a practical, evidence-based approach.</p></div>
+      <div class="timeline">
+        <div class="timeline-entry"><span class="date">2026 — 2027 · IN PROGRESS</span><h3>MSc International Business</h3><p>KEDGE Business School · Bordeaux, France</p></div>
+        <div class="timeline-entry"><span class="date">2025 — 2026</span><h3>Master in Management — M1</h3><p>KEDGE Business School · Bordeaux, France</p></div>
+        <div class="timeline-entry"><span class="date">UNDERGRADUATE STUDIES</span><h3>Bachelor's in Business Analytics</h3><p>GITAM Hyderabad Business School · India</p></div>
+      </div>
+    </div></section>
+
+    <section class="section skills" id="skills"><div class="wrap skills-wrap">
+      <div><span class="eyebrow">04 / Skills &amp; interests</span><h2 class="section-title">What I bring to the table.</h2><p class="section-intro">Areas I study, practice, and continue to develop through coursework and projects.</p></div>
+      <div>
+        <div class="skill-group"><h3>Business &amp; Strategy</h3><div class="skill-tags"><span>International Business</span><span>Market Research</span><span>Market Entry</span><span>Business Development</span><span>Competitive Analysis</span></div></div>
+        <div class="skill-group"><h3>Analytical &amp; Problem-Solving</h3><div class="skill-tags"><span>Business Analytics</span><span>Data Interpretation</span><span>Financial Analysis Coursework</span><span>Business Presentations</span></div></div>
+        <div class="skill-group"><h3>Collaboration &amp; Communication</h3><div class="skill-tags"><span>Cross-Cultural Management</span><span>Research Interviews</span><span>Team Projects</span><span>Negotiation Coursework</span></div></div>
+      </div>
+    </div></section>
+
+    <section class="contact" id="contact"><div class="wrap contact-box">
+      <div><span class="eyebrow">05 / Contact</span><h2>Let's build something<br />meaningful.</h2><p>Interested in connecting about internships, international business, market research, or collaboration? You can find me on GitHub.</p></div>
+      <a class="btn" href="https://github.com/bhanu-gif-creator" target="_blank" rel="noopener noreferrer">Visit my GitHub <span aria-hidden="true">↗</span></a>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Bhanu Annabathula. Made with purpose.</span><span>Based in Bordeaux, France · <a href="#home">Back to top ↑</a></span></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.menu-toggle');
+    const links = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+  </script>
+</body>
+</html>
