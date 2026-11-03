@@ -238,6 +238,24 @@
 @media(max-width:640px){.profile-panel{transform:none!important}.floating-pill{animation-duration:6.5s}.nav-links a:not(.nav-cta)::after{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.motion-ready .reveal{opacity:1!important;transform:none!important}.profile-panel{transform:none!important}.floating-pill{translate:none!important}.timeline::after{transform:scaleY(1)!important}}
 
+/* Mobile layout: place the floating information card below the portrait, not on top of the heading. */
+@media (max-width: 900px) {
+  .hero-visual .floating-pill {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    max-width: none;
+    margin: 18px auto 0;
+    animation: none;
+    translate: none;
+  }
+  .hero-visual .profile-panel {
+    margin-bottom: 0;
+  }
+}
+
 </style>
 </head>
 <body>
