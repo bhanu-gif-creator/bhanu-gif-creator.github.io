@@ -155,7 +155,7 @@
       .footer-inner { flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; } }
-  .contact-actions{display:flex;gap:12px;flex-wrap:wrap}.contact-actions .btn:nth-child(2){background:#fff}.contact-actions .btn:nth-child(3){background:transparent;border-color:#a8b9b0;color:white}@media(max-width:640px){.contact-actions{flex-direction:column}}@media(prefers-reduced-motion:no-preference){.reveal{animation:rise .65s both}@keyframes rise{from{opacity:.2;transform:translateY(18px)}to{opacity:1;transform:none}}}
+  .contact-actions{display:flex;gap:12px;flex-wrap:wrap}.contact-actions .btn:nth-child(2){background:#fff}.contact-actions .btn:nth-child(3){background:transparent;border-color:#a8b9b0;color:white}@media(max-width:640px){.contact-actions{flex-direction:column}}
 /* Image occupies and aligns with its own photo box, no absolute-offset drift. */
 .profile-panel { display:flex; flex-direction:column; min-height:515px; isolation:isolate; }
 .panel-top { z-index:2; flex-shrink:0; }
@@ -200,6 +200,44 @@
  .profile-panel:hover .portrait-frame img { transform:none!important; }
 }
 
+
+/* Refined, responsive portfolio animations */
+:root{--premium-ease:cubic-bezier(.22,1,.36,1)}
+#reading-progress{position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#35815e,#c5e595,#388b72);transform:scaleX(0);transform-origin:left center;pointer-events:none;z-index:5}
+.nav-links a:not(.nav-cta){position:relative}
+.nav-links a:not(.nav-cta)::after{content:"";position:absolute;bottom:-7px;left:0;right:100%;height:2px;background:#45936a;transition:right .3s var(--premium-ease)}
+.nav-links a:not(.nav-cta):hover::after,.nav-links a[aria-current="location"]:not(.nav-cta)::after{right:0}
+.nav-links a[aria-current="location"]:not(.nav-cta){color:var(--accent-deep)}
+.hero{isolation:isolate}.hero-grid{position:relative;z-index:1}
+.hero::after{content:"";position:absolute;left:-160px;bottom:-190px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,#b7dfb344,transparent 69%);pointer-events:none}
+.scroll-hint{margin-top:21px;display:inline-flex;align-items:center;gap:10px;font-size:.83rem;font-weight:760;color:#56716c;transition:color .2s}
+.scroll-hint:hover{color:var(--accent-deep)}
+.scroll-hint span{display:grid;place-items:center;width:30px;height:30px;border:1px solid #c9dcd2;background:#fff;border-radius:50%;color:#397b5d;animation:gentle-bob 2.9s ease-in-out infinite}
+.profile-panel{--tilt-x:0deg;--tilt-y:0deg;transform:perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transition:transform .29s ease,box-shadow .4s ease}
+.profile-panel.is-tilting{transition:transform .085s linear,box-shadow .4s ease}
+.profile-panel:hover{box-shadow:0 37px 76px #10283238}
+.profile-panel::after{content:"";position:absolute;width:270px;height:270px;right:-88px;top:-100px;background:radial-gradient(circle,#c5eeaf30,transparent 69%);border-radius:50%;pointer-events:none}
+.floating-pill{animation:float-gentle 5.6s ease-in-out infinite}
+.hero-visual::before{animation:ambient-breathe 10s ease-in-out infinite}
+.project-card{position:relative;overflow:hidden}
+.project-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#367c59,#c8e89d);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--premium-ease)}
+.project-card::after{content:"↗";position:absolute;top:23px;right:25px;color:#438560;font-size:1.25rem;opacity:.45;transform:translate(-5px,5px);transition:transform .35s var(--premium-ease),opacity .35s}
+.project-card:hover::before{transform:scaleX(1)}
+.project-card:hover::after{transform:translate(0,0);opacity:1}
+.project-tag span,.skill-tags span{transition:background .25s,transform .25s,border-color .25s}
+.project-card:hover .project-tag span{background:#d5ead3}
+.skill-tags span:hover{background:#eaf5e2;border-color:#b6d8b8;transform:translateY(-2px)}
+.motion-ready .reveal{transition-delay:var(--stagger,0ms);transition-duration:.75s;transition-timing-function:var(--premium-ease)}
+.timeline{position:relative}
+.timeline::after{content:"";position:absolute;top:0;bottom:0;left:-32px;width:2px;background:linear-gradient(#4f936b,#c9e4ad);transform:scaleY(0);transform-origin:top;transition:transform 1.15s var(--premium-ease)}
+.timeline.line-visible::after{transform:scaleY(1)}
+.contact .btn:hover{box-shadow:0 11px 25px #0003}
+@keyframes gentle-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+@keyframes float-gentle{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes ambient-breathe{0%,100%{opacity:.7;transform:scale(.97)}50%{opacity:1;transform:scale(1.08)}}
+@media(max-width:640px){.profile-panel{transform:none!important}.floating-pill{animation-duration:6.5s}.nav-links a:not(.nav-cta)::after{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.motion-ready .reveal{opacity:1!important;transform:none!important}.profile-panel{transform:none!important}.floating-pill{translate:none!important}.timeline::after{transform:scaleY(1)!important}}
+
 </style>
 </head>
 <body>
@@ -216,6 +254,7 @@
         <a class="nav-cta" href="#contact">Get in touch ↗</a>
       </div>
     </nav>
+    <div id="reading-progress" aria-hidden="true"></div>
   </header>
 
   <main id="main">
@@ -230,6 +269,7 @@
             <a class="btn btn-secondary" href="assets/Bhanu_Annabathula_CV.pdf" download>Download CV ↓</a>
           </div>
           <div class="location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 5.25-8 11-8 11S4 15.25 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.4"/></svg>Bordeaux, France · Open to international opportunities</div>
+          <a class="scroll-hint" href="#about"><span aria-hidden="true">↓</span> Scroll to explore</a>
         </div>
         <div class="hero-visual" aria-label="Bhanu Annabathula profile card">
           <div class="profile-panel">
@@ -256,7 +296,7 @@
 
     <section class="section projects" id="projects"><div class="wrap">
       <span class="eyebrow">02 / Selected academic work</span><h2 class="section-title">Projects that connect ideas to business.</h2><p class="section-intro">A selection of research topics and coursework exploring international markets, industry dynamics, and the realities of working across cultures.</p>
-      <div class="project-grid reveal">
+      <div class="project-grid">
         <article class="project-card"><span class="project-number">PROJECT 01 / RESEARCH</span><h3>Exporting Bordeaux Wine to India</h3><p>Thesis research on how local importer partnerships can help Bordeaux wine exporters navigate barriers to entering the Indian market.</p><div class="project-tag"><span>International Trade</span><span>Market Entry</span></div></article>
         <article class="project-card"><span class="project-number">PROJECT 02 / INDUSTRY</span><h3>French Games &amp; Toys Sector</h3><p>Strategic market analysis examining industry segmentation, competitive pressures, regulation, and opportunities in the French toys market.</p><div class="project-tag"><span>Market Research</span><span>Strategy</span></div></article>
         <article class="project-card"><span class="project-number">PROJECT 03 / MANAGEMENT</span><h3>Cross-Cultural Management Practices</h3><p>Team coursework using interviews to explore how multinational companies transfer management practices between headquarters and subsidiaries.</p><div class="project-tag"><span>Interviews</span><span>International Management</span></div></article>
@@ -303,7 +343,7 @@
   
     // Reveal content naturally as visitors scroll; never hide it on unsupported browsers.
     if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.metric-band, #about .about-grid, #projects .project-card, #education .education-grid, #skills .skill-group, #contact .contact-box').forEach(el=>el.classList.add('reveal'));
+      document.querySelectorAll('.metric, #about .about-grid > div, #about .focus, #projects .eyebrow, #projects .section-title, #projects .section-intro, #projects .project-card, #education .education-grid > div:first-child, #education .timeline-entry, #skills .skills-wrap > div:first-child, #skills .skill-group, #contact .contact-box > div, #contact .contact-actions').forEach(el=>el.classList.add('reveal'));
       const observer=new IntersectionObserver(entries=>{
         entries.forEach(entry=>{
           if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}
@@ -311,6 +351,59 @@
       },{threshold:.08,rootMargin:'0px 0px -15px 0px'});
       document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
       document.documentElement.classList.add('motion-ready');
+    }
+
+
+    // Reading progress, reveal stagger, and a gentle mouse effect.
+    const progressEl=document.getElementById('reading-progress');
+    let progressPending=false;
+    function progressUpdate(){
+      const available=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+      progressEl.style.transform='scaleX('+Math.min(1,Math.max(0,scrollY/available))+')';
+      progressPending=false;
+    }
+    function scheduleProgress(){if(!progressPending){progressPending=true;requestAnimationFrame(progressUpdate);}}
+    addEventListener('scroll',scheduleProgress,{passive:true});
+    addEventListener('resize',scheduleProgress,{passive:true});
+    progressUpdate();
+    ['.metric','.focus','.project-card','.timeline-entry','.skill-group'].forEach(selector=>{
+      document.querySelectorAll(selector).forEach((node,index)=>node.style.setProperty('--stagger',Math.min(index,4)*85+'ms'));
+    });
+    const lowMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const photoPanel=document.querySelector('.profile-panel');
+    if(photoPanel && !lowMotion && matchMedia('(hover: hover) and (pointer: fine)').matches){
+      photoPanel.addEventListener('pointermove',e=>{
+        const b=photoPanel.getBoundingClientRect();
+        photoPanel.style.setProperty('--tilt-x',(((.5-(e.clientY-b.top)/b.height)*5).toFixed(2))+'deg');
+        photoPanel.style.setProperty('--tilt-y',(((((e.clientX-b.left)/b.width)-.5)*6).toFixed(2))+'deg');
+        photoPanel.classList.add('is-tilting');
+      },{passive:true});
+      photoPanel.addEventListener('pointerleave',()=>{
+        photoPanel.classList.remove('is-tilting');
+        photoPanel.style.setProperty('--tilt-x','0deg');
+        photoPanel.style.setProperty('--tilt-y','0deg');
+      });
+    }
+    const timelineEl=document.querySelector('.timeline');
+    if(timelineEl){
+      if(!lowMotion&&'IntersectionObserver' in window){
+        const observer=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){timelineEl.classList.add('line-visible');observer.disconnect();}},{threshold:.1});
+        observer.observe(timelineEl);
+      }else{timelineEl.classList.add('line-visible');}
+    }
+    if('IntersectionObserver' in window){
+      const navAnchors=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+      const pageSections=navAnchors.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+      const current=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(!entry.isIntersecting)return;
+          navAnchors.forEach(a=>{
+            if(a.getAttribute('href')==='#'+entry.target.id)a.setAttribute('aria-current','location');
+            else a.removeAttribute('aria-current');
+          });
+        });
+      },{rootMargin:'-25% 0px -55% 0px',threshold:0});
+      pageSections.forEach(sec=>current.observe(sec));
     }
 
 </script>
