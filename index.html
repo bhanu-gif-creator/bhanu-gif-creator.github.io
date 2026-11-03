@@ -155,7 +155,52 @@
       .footer-inner { flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; } }
-  .contact-actions{display:flex;gap:12px;flex-wrap:wrap}.contact-actions .btn:nth-child(2){background:#fff}.contact-actions .btn:nth-child(3){background:transparent;border-color:#a8b9b0;color:white}@media(max-width:640px){.contact-actions{flex-direction:column}}@media(prefers-reduced-motion:no-preference){.reveal{animation:rise .65s both}@keyframes rise{from{opacity:.2;transform:translateY(18px)}to{opacity:1;transform:none}}}</style>
+  .contact-actions{display:flex;gap:12px;flex-wrap:wrap}.contact-actions .btn:nth-child(2){background:#fff}.contact-actions .btn:nth-child(3){background:transparent;border-color:#a8b9b0;color:white}@media(max-width:640px){.contact-actions{flex-direction:column}}@media(prefers-reduced-motion:no-preference){.reveal{animation:rise .65s both}@keyframes rise{from{opacity:.2;transform:translateY(18px)}to{opacity:1;transform:none}}}
+/* Image occupies and aligns with its own photo box, no absolute-offset drift. */
+.profile-panel { display:flex; flex-direction:column; min-height:515px; isolation:isolate; }
+.panel-top { z-index:2; flex-shrink:0; }
+.panel-ring { z-index:-1; pointer-events:none; }
+.portrait-frame { position:relative; z-index:1; display:block; width:min(100%,245px); aspect-ratio:3/4; margin:18px auto 17px; border-radius:22px; overflow:hidden; flex-shrink:0; background:#314c47; border:2px solid rgba(202,237,182,.72); box-shadow:0 14px 36px #0005; }
+.portrait-frame img { display:block; width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:inherit; transition:transform .8s cubic-bezier(.2,.7,.2,1); }
+.profile-panel:hover .portrait-frame img { transform:scale(1.035); }
+.panel-main { z-index:2; margin-top:auto; text-align:center; }
+.panel-main .monogram { display:none; }
+.panel-main h2 { margin-top:0; font-size:1.35rem; }
+.panel-main p { line-height:1.45; }
+.floating-pill { z-index:3; }
+
+/* Motion is subtle and disabled for visitors who prefer less animation. */
+.hero-grid > :first-child > * { animation:enter-up .75s both cubic-bezier(.2,.7,.15,1); }
+.hero-grid > :first-child > :nth-child(2) { animation-delay:.1s; }
+.hero-grid > :first-child > :nth-child(3) { animation-delay:.18s; }
+.hero-grid > :first-child > :nth-child(4) { animation-delay:.27s; }
+.hero-grid > :first-child > :nth-child(5) { animation-delay:.35s; }
+.hero-visual { animation:enter-up .9s .13s both cubic-bezier(.2,.7,.15,1); }
+.status-dot { animation:status-glow 2.8s ease-in-out infinite; }
+.project-card, .focus, .skill-group { transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+.project-card:hover { border-color:#b8d8bf; }
+.focus:hover, .skill-group:hover { transform:translateY(-3px); box-shadow:var(--shadow); }
+.btn { transition:transform .25s ease, box-shadow .25s ease; }
+.btn:hover { box-shadow:0 12px 27px rgba(16,40,50,.13); }
+@keyframes enter-up { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+@keyframes status-glow { 0%,100% { box-shadow:0 0 0 4px #d6ead8; } 50% { box-shadow:0 0 0 8px #d6ead877; } }
+.motion-ready .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1); }
+.motion-ready .reveal.is-visible { opacity:1; transform:none; }
+@media(max-width:640px) {
+ .profile-panel { min-height:495px; }
+ .portrait-frame { width:min(100%,235px); margin:16px auto 15px; }
+ .panel-main { margin-top:auto; }
+ .floating-pill { right:-9px; bottom:-8px; }
+}
+@media(max-width:370px) { .portrait-frame { width:min(100%,208px); } .profile-panel { min-height:463px; } }
+@media(prefers-reduced-motion:reduce) {
+ .hero-grid > :first-child > *, .hero-visual, .status-dot { animation:none!important; }
+ .motion-ready .reveal { opacity:1!important; transform:none!important; transition:none!important; }
+ .portrait-frame img { transition:none!important; }
+ .profile-panel:hover .portrait-frame img { transform:none!important; }
+}
+
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -188,8 +233,9 @@
         </div>
         <div class="hero-visual" aria-label="Bhanu Annabathula profile card">
           <div class="profile-panel">
-            <div class="panel-ring" aria-hidden="true"></div><img src="assets/bhanu-portrait.jpg" alt="Professional portrait of Bhanu Annabathula" onerror="this.style.display='none'" style="position:absolute;right:30px;top:75px;width:130px;height:130px;object-fit:cover;border-radius:25px;border:3px solid #c9e9b4;background:#c9e9b4">
+            <div class="panel-ring" aria-hidden="true"></div>
             <div class="panel-top"><span>PORTFOLIO / 2026</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="portrait-frame"><img src="assets/bhanu-portrait.jpg" alt="Portrait of Bhanu Annabathula" width="640" height="853" decoding="async" fetchpriority="high"></div>
             <div class="panel-main"><div class="monogram" aria-hidden="true">BA.</div><h2>International Business</h2><p>Strategy · Research · Analytics</p></div>
           </div>
           <div class="floating-pill"><span class="pill-icon">↗</span><div><strong>Business, without borders</strong><small>France · International focus</small></div></div>
@@ -254,6 +300,19 @@
       links.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
     }));
-  </script>
+  
+    // Reveal content naturally as visitors scroll; never hide it on unsupported browsers.
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.metric-band, #about .about-grid, #projects .project-card, #education .education-grid, #skills .skill-group, #contact .contact-box').forEach(el=>el.classList.add('reveal'));
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}
+        });
+      },{threshold:.08,rootMargin:'0px 0px -15px 0px'});
+      document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+      document.documentElement.classList.add('motion-ready');
+    }
+
+</script>
 </body>
 </html>
